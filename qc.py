@@ -1,4 +1,4 @@
-import pd as pd
+import pandas as pd
 
 
 qcdf = pd.merge(pd.read_csv('Data/mriqcp202.txt', sep='\t'), pd.read_csv('Data/mriqc02.txt', sep='\t'), on = 'subjectkey')
@@ -28,3 +28,6 @@ df['iqc_nback_fd_count'] = df['iqc_nback_1_sub_02_nody'].astype('float') + df['i
 
 # sort by FD
 df.sort_values(by=['iqc_rsfmri_fd_count', 'iqc_nback_fd_count', 'iqc_sst_fd_count', 'iqc_mid_fd_count'], ascending=False)
+
+
+sort_df = df['subjectkey', 'iqc_rsfmri_fd_count', 'iqc_nback_fd_count', 'iqc_sst_fd_count', 'iqc_mid_fd_count']
